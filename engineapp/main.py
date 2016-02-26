@@ -102,8 +102,7 @@ class MainHandler(webapp2.RequestHandler):
                       break
                 self.response.write("<p>"+memcache.get(str(x))+"</p>")
         global_stat = stats.GlobalStat.all().get()
-        print 'Total bytes stored: %d' % global_stat.bytes
-        print 'Total entities stored: %d' % global_stat.count
+        self.response.write("<p>Total bytes stored:" +str(global_stat)+"</p>")
         self.response.write("</center></body></html>")
         
 
